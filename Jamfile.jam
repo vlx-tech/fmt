@@ -1,0 +1,9 @@
+# fmt
+
+SubDir TOP external fmt ;
+
+SOURCES += @($(SUBDIR)/fmt/*.cc:W) ;
+
+CopyDirectory external-fmt : $(SUBDIR)/.include/fmt : $(SUBDIR)/fmt : *.h ;
+C.IncludeDirectories * : .include ;
+C.Library external-fmt : $(SOURCES) ;
